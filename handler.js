@@ -38,7 +38,7 @@ function getMessage(msg) {
                 sura = ayaData.sura_name;
             })
             .then(() => {
-                msg.channel.send(`Sura(${suraId}): '${sura}'\nAya (${ayaId}): '${ayaText}'\nTafseer: '${tafseer}'`);
+                msg.channel.send(`Sura (${suraId}): '${sura}'\nAya (${ayaId}): '${ayaText}'\nTafseer: '${tafseer}'`);
             })
         })
         return;
