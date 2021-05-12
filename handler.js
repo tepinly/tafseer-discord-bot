@@ -26,19 +26,19 @@ function getMessage(msg) {
         var ayaName = command[1];
         var ayaId = checkAya(ayaName);
         if (ayaId === false) return msg.channel.send("INVALID: Aya number.");
-        var ayaText, tafseer, sura;
+        var ayaText, tafseerText, suraText;
 
         getTafseer(suraId, ayaId)
         .then(data => {
-            tafseer = data.text;
+            tafseerText = data.text;
 
             getAya(data.ayah_url)
             .then(ayaData => {
                 ayaText = ayaData.text; 
-                sura = ayaData.sura_name;
+                suraText = ayaData.sura_name;
             })
             .then(() => {
-                msg.channel.send(`Sura (${suraId}): '${sura}'\nAya (${ayaId}): '${ayaText}'\nTafseer: '${tafseer}'`);
+                msg.channel.send(`Sura (${suraId}): '${suraText}'\nAya (${ayaId}): '${ayaText}'\nTafseer: '${tafseerText}'`);
             })
         })
         return;
